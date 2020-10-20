@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.time.LocalDateTime;
 import java.util.List;
 @Service
 public class ItemServiceImpl implements ICrudItem {
@@ -24,9 +25,13 @@ public class ItemServiceImpl implements ICrudItem {
             Integer id = this.getAll().stream().map(element-> element.getId())
                     .mapToInt(element -> Integer.valueOf(element)).max().orElse(0);
 
-            item.setId(String.valueOf(id++));// и опять превращаем в стринг
+            item.setId(String.valueOf(++id));// и опять превращаем в стринг
             //єтот функционал проверяем список на предмет АЙДИ - тотом конвертировали в ИНТ и проверили есть ли у нас максимальній? если да - то новій сетАйди получает +1!
             //если список пуст то предаем значение 0 - а потом +1
+            item.setCreated_at(LocalDateTime.now());
+            item.setModified_at(LocalDateTime.now());
+            this.getAll().add(item);
+
         }
 
         return item;

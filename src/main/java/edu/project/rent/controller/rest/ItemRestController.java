@@ -3,9 +3,7 @@ package edu.project.rent.controller.rest;
 import edu.project.rent.model.Item;
 import edu.project.rent.service.item.impls.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,7 +14,7 @@ public class ItemRestController {
 //    FakeData data;
     ItemServiceImpl service;
 
-    @RequestMapping("/all") //rest возвращает JASON
+    @RequestMapping("/get/all") //rest возвращает JASON
     List<Item> getAll (){
         return service.getAll();
     }
@@ -31,8 +29,21 @@ public class ItemRestController {
         return service.delete(id);
     }
 
+    @RequestMapping("/get/{id}")
 
+    Item getById(@PathVariable("id") String id) {
+//
+//        Item item = service.getAll().stream().filter(element -> element.getId().equals(id))
+//                .findFirst().orElse(null);
+//        service.getAll().remove(item);
 
+        return service.get(id);
+
+    }
+    @PostMapping("/create")
+    Item create(@RequestBody Item item){
+        return service.create(item);
+    }
 
 
 }

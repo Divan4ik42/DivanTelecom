@@ -24,7 +24,7 @@ public class ItemWebController {
             ItemServiceImpl service;
 
     @RequestMapping("/all")
-        //rest возвращает JASON
+
     String getAll(Model model) {
         model.addAttribute("Items", service.getAll());
         return "ItemsTable";

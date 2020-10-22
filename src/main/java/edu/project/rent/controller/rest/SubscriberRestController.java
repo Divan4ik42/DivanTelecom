@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RequestMapping("/api/subscriber")
-@RestController
+@RestController //Json conventer
 public class SubscriberRestController {
   @Autowired
     FakeData data;

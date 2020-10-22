@@ -28,8 +28,10 @@ public class ItemServiceImpl implements ICrudItem {
             item.setId(String.valueOf(++id));// и опять превращаем в стринг
             //єтот функционал проверяем список на предмет АЙДИ - тотом конвертировали в ИНТ и проверили есть ли у нас максимальній? если да - то новій сетАйди получает +1!
             //если список пуст то предаем значение 0 - а потом +1
-            item.setCreated_at(LocalDateTime.now());
-            item.setModified_at(LocalDateTime.now());
+            LocalDateTime now = LocalDateTime.now();//єта переменная ьудет одинаковой и для криєйта и модифайта
+
+            item.setCreated_at(now);
+            item.setModified_at(now);
             this.getAll().add(item);
 
         }
@@ -44,7 +46,13 @@ public class ItemServiceImpl implements ICrudItem {
 
     @Override
     public Item update(Item item) {
-        this.getAll().add(item);
+        String id = item.getId();
+        Item itemToUpdate = this.getAll().stream().filter(element -> element.getId().equals(id))
+                .findFirst().orElse(null);
+        int index = this.getAll().indexOf(itemToUpdate);
+        item.setModified_at(LocalDateTime.now());//  Обязательно всунуть перед   SET
+        this.getAll().set(index , item);
+
 
         return item;
     }

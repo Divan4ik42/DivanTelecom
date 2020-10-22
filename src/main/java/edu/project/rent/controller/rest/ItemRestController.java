@@ -45,5 +45,11 @@ public class ItemRestController {
         return service.create(item);
     }
 
+    @PutMapping("/update")
+    Item update(@RequestBody Item item){
+        return service.update(item);
+    }
+
+
 
 }

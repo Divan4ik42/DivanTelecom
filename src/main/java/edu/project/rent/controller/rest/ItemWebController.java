@@ -1,14 +1,13 @@
 package edu.project.rent.controller.rest;
 
 import edu.project.rent.data.FakeData;
+import edu.project.rent.forms.ItemForm;
 import edu.project.rent.model.Item;
 import edu.project.rent.service.item.impls.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -42,6 +41,25 @@ public class ItemWebController {
 
         return "redirect:/web/item/all";
     }
+    @RequestMapping(value = "/create", method = RequestMethod.GET)
+    public String create(Model model){
+        ItemForm itemForm = new ItemForm();
+        model.addAttribute("form" , itemForm);
+
+        return "ItemAddForm";
+    }
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
+    public String create(@ModelAttribute("form") ItemForm form,Model model){
+        Item item = new Item();
+//        item.getName() = form.setName(form.getName());
+        item.setName(form.getName());
+        item.setDescription(form.getDescription());
+        service.create(item);
+
+        return "redirect:/web/item/all";
+    }
+
+
 
 
 }

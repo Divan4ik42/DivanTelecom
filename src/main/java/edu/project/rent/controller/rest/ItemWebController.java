@@ -58,6 +58,35 @@ public class ItemWebController {
 
         return "redirect:/web/item/all";
     }
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
+    public String update(Model model,@PathVariable("id") String id ){
+        Item item = service.get(id);
+        ItemForm itemForm = new ItemForm();
+        itemForm.setId(item.getId());
+        itemForm.setName(item.getName());
+        itemForm.setDescription(item.getDescription());
+//        itemForm.setCreated_at(item.getCreated_at().toString());
+//        itemForm.setModified_at(item.getModified_at().toString());
+
+        model.addAttribute("form" , itemForm);
+
+        return "UpdateItem";
+
+    }   @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    public String update(Model model,@PathVariable("id") String id,@ModelAttribute("form") ItemForm form ){
+        Item item = service.get(id);
+     item.setName(form.getName());
+     item.setDescription(form.getDescription());
+
+
+//        itemForm.setCreated_at(item.getCreated_at().toString());
+//        itemForm.setModified_at(item.getModified_at().toString());
+
+
+        service.update(item);
+
+        return "redirect:/web/item/all";
+    }
 
 
 

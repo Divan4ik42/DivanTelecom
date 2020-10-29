@@ -4,6 +4,8 @@ public class ItemForm {
     private String id = "";
     private String name= "";
     private String description= "";
+    private String modified_at = "";
+    private String created_at = "";
 
 
     public ItemForm() {
@@ -18,6 +20,22 @@ public class ItemForm {
         this.id = id;
         this.name = name;
         this.description = description;
+    }
+
+    public String getModified_at() {
+        return modified_at;
+    }
+
+    public void setModified_at(String modified_at) {
+        this.modified_at = modified_at;
+    }
+
+    public String getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 
     public String getId() {

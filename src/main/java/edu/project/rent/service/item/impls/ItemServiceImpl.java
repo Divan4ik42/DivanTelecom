@@ -47,8 +47,12 @@ public class ItemServiceImpl implements ICrudItem {
 
     @Override
     public Item update(Item item) {
-        this.getAll().add(item);
-
+        String id = item.getId();
+        Item itemToUpdate = this.getAll().stream().filter(el -> el.getId().equals(id))
+                .findFirst().orElse(null);
+        int index = this.getAll().indexOf(itemToUpdate);
+        item.setModified_at(LocalDateTime.now());
+        this.getAll().set(index, item);
         return item;
     }
 

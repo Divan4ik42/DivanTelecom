@@ -23,7 +23,7 @@
 <#--            Modified:<@spring.formInput "form.modified_at" "" "text"/>-->
 <#--            <br>-->
 
-            <input type="submit" value="Create"/>
+            <input type="submit" value="update"/>
         </form>
     </fieldset>
 </div>

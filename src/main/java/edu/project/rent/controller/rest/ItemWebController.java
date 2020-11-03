@@ -1,26 +1,19 @@
 package edu.project.rent.controller.rest;
 
-import edu.project.rent.data.FakeData;
 import edu.project.rent.forms.ItemForm;
 import edu.project.rent.model.Item;
-import edu.project.rent.service.item.impls.ItemServiceImpl;
+import edu.project.rent.service.item.impls.CrudItemMongoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("/web/item")
 public class ItemWebController {
 
     @Autowired
-//    FakeData data;
-            ItemServiceImpl service;
+    CrudItemMongoImpl service;
 
     @RequestMapping("/all")
         //rest возвращает JASON

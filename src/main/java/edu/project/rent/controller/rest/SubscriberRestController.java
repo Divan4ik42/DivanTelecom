@@ -14,11 +14,11 @@ import java.util.stream.Stream;
 @RequestMapping("/api/subscriber")
 @RestController
 public class SubscriberRestController {
-  @Autowired
+    @Autowired
     FakeData data;
-    @RequestMapping("/sublist")
-    List<Subscriber> getSubscriber(){
 
+    @RequestMapping("/sublist")
+    List<Subscriber> getSubscriber() {
         return data.getSubscriber();
     }
 }

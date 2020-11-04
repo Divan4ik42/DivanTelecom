@@ -1,24 +1,37 @@
 package edu.project.rent.controller.rest;
 
-import edu.project.rent.data.FakeData;
+import edu.project.rent.model.Item;
 import edu.project.rent.model.Subscriber;
+import edu.project.rent.service.subscriber.impls.CrudSubscriberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-
-@RequestMapping("/api/subscriber")
 @RestController
+@RequestMapping("/api/subscriber")
 public class SubscriberRestController {
     @Autowired
-    FakeData data;
+    CrudSubscriberServiceImpl service;
 
-    @RequestMapping("/sublist")
-    List<Subscriber> getSubscriber() {
-        return data.getSubscriber();
+    @RequestMapping("/list")
+    List<Subscriber> getSubscriber()
+    {
+        return service.getAll();
     }
+    @RequestMapping("/delete/{id}")
+    Subscriber deleteById(@PathVariable("id") String id)
+    {
+        return service.delete(id);
+    }
+    @RequestMapping("/get/{id}")
+
+    Subscriber getById(@PathVariable("id") String id) {
+
+        return service.get(id);
+    }
+    @PostMapping("/create")
+    Subscriber create(@RequestBody Subscriber subscriber){
+        return service.create(subscriber);
+    }
+
 }

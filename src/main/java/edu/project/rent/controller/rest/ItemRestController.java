@@ -1,6 +1,7 @@
 package edu.project.rent.controller.rest;
 
 import edu.project.rent.model.Item;
+import edu.project.rent.service.item.impls.CrudItemMongoImpl;
 import edu.project.rent.service.item.impls.ItemServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,8 @@ import java.util.List;
 public class ItemRestController {
 @Autowired
 //    FakeData data;
-    ItemServiceImpl service;
+//    ItemServiceImpl service;
+CrudItemMongoImpl service;
 
     @RequestMapping("/get/all") //rest возвращает JASON
     List<Item> getAll (){

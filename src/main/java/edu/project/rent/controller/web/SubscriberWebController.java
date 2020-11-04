@@ -1,4 +1,4 @@
-package edu.project.rent.controller.rest;
+package edu.project.rent.controller.web;
 
 import edu.project.rent.data.FakeData;
 import edu.project.rent.model.Item;
@@ -23,16 +23,16 @@ public class SubscriberWebController {
 
     @RequestMapping("/sublist")
     String getList(Model model) {
-        model.addAttribute("subscribers", data.getSubscriber());
+        model.addAttribute("subscribers", data.getSubscribers());
         return "SubscribersTable";
     }
 
     @RequestMapping("/delete/{id}")
     String deleteById(@PathVariable("id") String id) {
 
-        Subscriber subscriber = data.getSubscriber().stream().filter(element -> element.getId().equals(id))
+        Subscriber subscriber = data.getSubscribers().stream().filter(element -> element.getId().equals(id))
                 .findFirst().orElse(null);
-        data.getSubscriber().remove(subscriber);
+        data.getSubscribers().remove(subscriber);
         return "redirect:/web/subscriber/sublist";
 
     }

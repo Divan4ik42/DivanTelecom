@@ -1,4 +1,4 @@
-package edu.project.rent.controller.rest;
+package edu.project.rent.controller.web;
 
 import edu.project.rent.forms.ItemForm;
 import edu.project.rent.model.Item;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/web/item")
+
 public class ItemWebController {
 
     @Autowired

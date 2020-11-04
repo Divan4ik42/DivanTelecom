@@ -25,17 +25,19 @@ public class FakeData {
 
     ).collect(Collectors.toList());
 
+
     public List<Item> getItems() {
         return items;
     }
+
+    public List<Subscriber> getSubscribers() { return subscriber; }
+
 
     public void setItems(List<Item> items) {
         this.items = items;
     }
 
-    public List<Subscriber> getSubscriber() {
-        return subscriber;
-    }
+
 
     public void setSubscriber(List<Subscriber> subscriber) {
         this.subscriber = subscriber;

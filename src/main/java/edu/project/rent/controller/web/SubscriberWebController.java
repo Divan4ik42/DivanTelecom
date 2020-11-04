@@ -23,16 +23,16 @@ public class SubscriberWebController {
 
     @RequestMapping("/sublist")
     String getList(Model model) {
-        model.addAttribute("subscribers", data.getSubscribers());
+        model.addAttribute("subscribers", data.getSubscriber());
         return "SubscribersTable";
     }
 
     @RequestMapping("/delete/{id}")
     String deleteById(@PathVariable("id") String id) {
 
-        Subscriber subscriber = data.getSubscribers().stream().filter(element -> element.getId().equals(id))
+        Subscriber subscriber = data.getSubscriber().stream().filter(element -> element.getId().equals(id))
                 .findFirst().orElse(null);
-        data.getSubscribers().remove(subscriber);
+        data.getSubscriber().remove(subscriber);
         return "redirect:/web/subscriber/sublist";
 
     }

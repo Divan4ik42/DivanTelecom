@@ -2,26 +2,22 @@ package edu.project.rent.service.item.impls;
 
 import edu.project.rent.data.FakeData;
 import edu.project.rent.model.Item;
-import edu.project.rent.repository.ItemRepository;
 import edu.project.rent.service.item.interfaces.ICrudItem;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.time.LocalDateTime;
 import java.util.List;
 @Service
-//@Component
 public class ItemServiceImpl implements ICrudItem {
 
     @Autowired
     FakeData data;
 
-    @Autowired
-    ItemRepository itemRepository;
-
     @Override
+
+
 
     public Item create(Item item) {
         System.out.println(item);

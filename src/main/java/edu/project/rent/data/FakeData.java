@@ -30,7 +30,7 @@ public class FakeData {
         return items;
     }
 
-    public List<Subscriber> getSubscribers() { return subscriber; }
+    public List<Subscriber> getSubscriber() { return subscriber; }
 
 
     public void setItems(List<Item> items) {

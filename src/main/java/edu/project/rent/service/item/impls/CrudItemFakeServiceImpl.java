@@ -10,17 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.time.LocalDateTime;
 import java.util.List;
 @Service
-public class ItemServiceImpl implements ICrudItem {
+public class CrudItemFakeServiceImpl implements ICrudItem {
 
     @Autowired
     FakeData data;
 
     @Override
-
-
-
     public Item create(Item item) {
-        System.out.println(item);
         if (item.getId() != null) {
 
             this.getAll().add(item);

@@ -1,66 +1,60 @@
 package edu.project.rent.service.subscriber.impls;
 
-
 import edu.project.rent.data.FakeData;
+import edu.project.rent.model.Item;
 import edu.project.rent.model.Subscriber;
-import edu.project.rent.repository.SubscriberRepository;
 import edu.project.rent.service.subscriber.interfaces.ICrudSubscriber;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Service
-public class CrudSubscriberMongoImpl implements ICrudSubscriber {
-    @Autowired
-    FakeData bata;
+public class CrudSubscriberFakeServiceImpl implements ICrudSubscriber {
 
     @Autowired
-    SubscriberRepository repository;
-
-    private List<Subscriber> list = new ArrayList<>();
-
-    @PostConstruct
-    //не будет загружать фейк дату в базу при отключином постконстракта
-    void init() {
-        list = bata.getSubscriber();
-        list.size();
-        repository.saveAll(list);
-    }
+    FakeData fakeData;
 
     @Override
     public Subscriber create(Subscriber subscriber) {
-        subscriber.setId(subscriber.getId());
+        UUID id = UUID.randomUUID();
+        subscriber.setId(id.toString());
         subscriber.setCreated_at(LocalDateTime.now());
         subscriber.setModified_at(LocalDateTime.now());
-        return repository.save(subscriber);
+        fakeData.getSubscriber().add(subscriber);
+        return subscriber;
     }
 
     @Override
     public Subscriber get(String id) {
-        return repository.findById(id).orElse(null);
+        return null;
     }
+
 
     @Override
     public Subscriber update(Subscriber subscriber) {
+        String id = subscriber.getId();
+        Subscriber subscriberToUpdate = this.getAll().stream().filter(el -> el.getId().equals(id))
+                .findFirst().orElse(null);
+        int index = this.getAll().indexOf(subscriberToUpdate);
         subscriber.setModified_at(LocalDateTime.now());
-        return repository.save(subscriber);
+        this.getAll().set(index, subscriber);
+
+        return subscriber;
     }
 
     @Override
     public Subscriber delete(String id) {
-        Subscriber subscriber = this.get(id);
-        repository.deleteById(id);
+        Subscriber subscriber = this.getAll().stream().filter(element->element.getId().equals(id))
+                .findFirst().orElse(null);
+        this.getAll().remove(subscriber);
         return subscriber;
-
     }
 
     @Override
     public List<Subscriber> getAll() {
-        return repository.findAll();
+        return fakeData.getSubscriber();
     }
-
 }

@@ -15,7 +15,7 @@ public class ItemWebController {
     @Autowired
     CrudItemMongoImpl service;
 
-    @RequestMapping("/all")
+    @RequestMapping("/list")
         //rest возвращает JASON
     String getAll(Model model) {
         model.addAttribute("Items", service.getAll());
@@ -32,7 +32,7 @@ public class ItemWebController {
 //                .findFirst().orElse(null);
 //        service.getAll().remove(item);
 
-        return "redirect:/web/item/all";
+        return "redirect:/web/item/list";
     }
     @RequestMapping(value = "/create", method = RequestMethod.GET)
     public String create(Model model){
@@ -49,7 +49,7 @@ public class ItemWebController {
         item.setDescription(form.getDescription());
         service.create(item);
 
-        return "redirect:/web/item/all";
+        return "redirect:/web/item/list";
     }
     @RequestMapping(value = "/update/{id}", method = RequestMethod.GET)
     public String update(Model model,@PathVariable("id") String id ){
@@ -78,7 +78,7 @@ public class ItemWebController {
 
         service.update(item);
 
-        return "redirect:/web/item/all";
+        return "redirect:/web/item/list";
     }
 
 

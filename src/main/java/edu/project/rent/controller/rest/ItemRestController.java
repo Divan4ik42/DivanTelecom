@@ -1,7 +1,8 @@
 package edu.project.rent.controller.rest;
 
 import edu.project.rent.model.Item;
-import edu.project.rent.service.item.impls.ItemServiceImpl;
+import edu.project.rent.service.item.impls.CrudItemFakeServiceImpl;
+import edu.project.rent.service.item.impls.CrudItemMongoImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,14 +11,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/item")
 public class ItemRestController {
+
 @Autowired
 //    FakeData data;
-    ItemServiceImpl service;
+        CrudItemMongoImpl service;
 
     @RequestMapping("/get/all") //rest возвращает JASON
     List<Item> getAll (){
         return service.getAll();
     }
+
     @RequestMapping("/delete/{id}")
 
     Item deleteById(@PathVariable("id") String id) {
@@ -43,6 +46,11 @@ public class ItemRestController {
     @PostMapping("/create")
     Item create(@RequestBody Item item){
         return service.create(item);
+    }
+
+ @PutMapping("/update")
+    Item update(@RequestBody Item item){
+        return service.update(item);
     }
 
 

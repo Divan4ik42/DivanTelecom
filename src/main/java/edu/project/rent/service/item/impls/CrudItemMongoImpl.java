@@ -24,7 +24,7 @@ public class CrudItemMongoImpl implements ICrudItem {
 
     private List<Item> list = new ArrayList<>();
 
-  @PostConstruct
+//  @PostConstruct
     //не будет загружать фейк дату в базу при отключином постконстракта
     void init() {
         list = bata.getItems();

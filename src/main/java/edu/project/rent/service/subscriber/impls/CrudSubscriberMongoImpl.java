@@ -23,7 +23,7 @@ public class CrudSubscriberMongoImpl implements ICrudSubscriber {
 
     private List<Subscriber> list = new ArrayList<>();
 
-    @PostConstruct
+//    @PostConstruct
     //не будет загружать фейк дату в базу при отключином постконстракта
     void init() {
         list = bata.getSubscriber();

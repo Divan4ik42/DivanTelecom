@@ -52,7 +52,7 @@
                 <td>${element.idNumber}</td>
                 <td>${element.description}</td>
                 <td><a href="/web/subscriber/delete/${element.id}"><button type="button" class="btn btn-light">delete</button></a> </td>
-                <td><a href="/web/subscriber/edit/${element.id}"><button type="button" class="btn btn-info">edit</button></a> </td>
+                <td><a href="/web/subscriber/update/${element.id}"><button type="button" class="btn btn-info">edit</button></a> </td>
 
 
             </tr>
@@ -61,6 +61,11 @@
 
 </div>
 <a href="/index.html">back</a>
+<div>
+
+    <a href="/web/subscriber/create/"><button type="button" class="btn btn-light">Create</button></a>
+
+</div>
 
 
 

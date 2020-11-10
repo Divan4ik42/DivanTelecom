@@ -1,27 +1,21 @@
-package edu.project.rent.model;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+package edu.project.rent.forms;
 
 import java.time.LocalDateTime;
-import java.util.Objects;
-@Document
-public class Subscriber {
-    @Id
-    private String id;
-    private String name;
-    private String sureName;
-    private String tel;
-    private String address;
-    private String idNumber;
-    private String description;
-    private LocalDateTime created_at;
-    private LocalDateTime modified_at;
 
-    public Subscriber() {
+public class SubscriberForm {
+    private String id = "";
+    private String name = "";
+    private String sureName = "";
+    private String tel = "";
+    private String address = "";
+    private String idNumber = "";
+    private String description = "";
+    private String created_at = "";
+
+    public SubscriberForm() {
     }
 
-    public Subscriber(String name, String sureName, String tel, String address, String idNumber, String description) {
+    public SubscriberForm(String name, String sureName, String tel, String address, String idNumber, String description) {
         this.name = name;
         this.sureName = sureName;
         this.tel = tel;
@@ -30,7 +24,7 @@ public class Subscriber {
         this.description = description;
     }
 
-    public Subscriber(String id, String name, String sureName, String tel, String address, String idNumber, String description, LocalDateTime created_at, LocalDateTime modified_at) {
+    public SubscriberForm(String id, String name, String sureName, String tel, String address, String idNumber, String description) {
         this.id = id;
         this.name = name;
         this.sureName = sureName;
@@ -38,8 +32,6 @@ public class Subscriber {
         this.address = address;
         this.idNumber = idNumber;
         this.description = description;
-        this.created_at = created_at;
-        this.modified_at = modified_at;
     }
 
     public String getId() {
@@ -98,38 +90,17 @@ public class Subscriber {
         this.description = description;
     }
 
-    public LocalDateTime getCreated_at() {
+    public String getCreated_at() {
         return created_at;
     }
 
-    public void setCreated_at(LocalDateTime created_at) {
+    public void setCreated_at(String created_at) {
         this.created_at = created_at;
-    }
-
-    public LocalDateTime getModified_at() {
-        return modified_at;
-    }
-
-    public void setModified_at(LocalDateTime modified_at) {
-        this.modified_at = modified_at;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Subscriber that = (Subscriber) o;
-        return getId().equals(that.getId());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId());
     }
 
     @Override
     public String toString() {
-        return "Subscriber{" +
+        return "SubscriberForm{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", sureName='" + sureName + '\'' +
@@ -137,8 +108,6 @@ public class Subscriber {
                 ", address='" + address + '\'' +
                 ", idNumber='" + idNumber + '\'' +
                 ", description='" + description + '\'' +
-                ", created_at=" + created_at +
-                ", modified_at=" + modified_at +
                 '}';
     }
 }

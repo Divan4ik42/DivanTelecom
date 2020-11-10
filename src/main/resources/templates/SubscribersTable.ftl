@@ -39,7 +39,7 @@
             <th>idNumber</th>
             <th>description</th>
             <th>delete</th>
-            <th>edit</th>
+            <th>update</th>
         </tr>
         <#list subscribers as element> <!--цикл по всем айтемам -->
 <#--      для каждого айтем каторый мы получили из контроллера-->
@@ -53,8 +53,6 @@
                 <td>${element.description}</td>
                 <td><a href="/web/subscriber/delete/${element.id}"><button type="button" class="btn btn-light">delete</button></a> </td>
                 <td><a href="/web/subscriber/update/${element.id}"><button type="button" class="btn btn-info">edit</button></a> </td>
-
-
             </tr>
         </#list>
     </table>

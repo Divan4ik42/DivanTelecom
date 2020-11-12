@@ -19,6 +19,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Item</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet"
           type="text/css" href="<@spring.url '/css/style.css'/>"/>
@@ -27,12 +29,22 @@
 
 <h3>List</h3>
 <br>
+<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Sort by
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+        <button class="btn dropdown-item" onclick="window.location.href='/web/item/list/sortbyid'">ID</button>
+        <button class="btn dropdown-item" onclick="window.location.href='/web/item/list/sort'">Name</button>
+        <button class="btn dropdown-item" onclick="window.location.href='/web/item/list/sortbydate'">Modified</button>
+    </div>
 <div>
 <#--<a href="http://localhost:8080/">Create</a>-->
     <table class="table table-dark">
         <tr>
             <th>id</th>
-            <th>name</th>
+            <th>name </th>
             <th>description</th>
             <th>created</th>
             <th>modified</th>
@@ -54,6 +66,11 @@
             </tr>
         </#list>
     </table>
+
+</div>
+
+
+
 
 </div>
 <div>

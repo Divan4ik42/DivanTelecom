@@ -12,7 +12,10 @@ import org.springframework.stereotype.Service;
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CrudItemMongoImpl implements ICrudItem {
@@ -62,6 +65,34 @@ public class CrudItemMongoImpl implements ICrudItem {
     @Override
     public List<Item> getAll() {
         return repository.findAll();
+    }
+
+    public List<Item> getAllSorted() {
+        List<Item> list = repository.findAll();
+        List<Item> sorted = list.stream()
+                .sorted(Comparator.comparing(Item::getName, String.CASE_INSENSITIVE_ORDER))
+                .collect(Collectors.toList());
+
+
+
+
+
+
+        return sorted;
+    }
+    public List<Item> getAllSortedByDate() {
+        List<Item> list = repository.findAll();
+        List<Item> sortedByDateMod = list.stream()
+                .sorted(Comparator.comparing(Item::getModified_at))
+                .collect(Collectors.toList());
+        return sortedByDateMod;
+    }
+    public List<Item> getAllSortedById() {
+        List<Item> list = repository.findAll();
+        List<Item> sortById = list.stream()
+                .sorted(Comparator.comparing(Item::getId))
+                .collect(Collectors.toList());
+        return sortById;
     }
 
 }

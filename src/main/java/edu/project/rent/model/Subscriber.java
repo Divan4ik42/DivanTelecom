@@ -10,6 +10,7 @@ public class Subscriber {
     @Id
     private String id;
     private String name;
+    private String gender;
     private String sureName;
     private String tel;
     private String address;
@@ -21,8 +22,9 @@ public class Subscriber {
     public Subscriber() {
     }
 
-    public Subscriber(String name, String sureName, String tel, String address, String idNumber, String description) {
+    public Subscriber(String name, String gender, String sureName, String tel, String address, String idNumber, String description) {
         this.name = name;
+        this.gender = gender;
         this.sureName = sureName;
         this.tel = tel;
         this.address = address;
@@ -30,9 +32,10 @@ public class Subscriber {
         this.description = description;
     }
 
-    public Subscriber(String id, String name, String sureName, String tel, String address, String idNumber, String description, LocalDateTime created_at, LocalDateTime modified_at) {
+    public Subscriber(String id, String name, String gender, String sureName, String tel, String address, String idNumber, String description, LocalDateTime created_at, LocalDateTime modified_at) {
         this.id = id;
         this.name = name;
+        this.gender = gender;
         this.sureName = sureName;
         this.tel = tel;
         this.address = address;
@@ -40,6 +43,14 @@ public class Subscriber {
         this.description = description;
         this.created_at = created_at;
         this.modified_at = modified_at;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getId() {
@@ -132,6 +143,7 @@ public class Subscriber {
         return "Subscriber{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", gender='" + gender + '\'' +
                 ", sureName='" + sureName + '\'' +
                 ", tel='" + tel + '\'' +
                 ", address='" + address + '\'' +
@@ -142,3 +154,4 @@ public class Subscriber {
                 '}';
     }
 }
+

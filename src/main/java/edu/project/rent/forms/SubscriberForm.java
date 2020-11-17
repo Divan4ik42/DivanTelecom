@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class SubscriberForm {
     private String id = "";
     private String name = "";
+    private String gender = "";
     private String sureName = "";
     private String tel = "";
     private String address = "";
@@ -15,23 +16,35 @@ public class SubscriberForm {
     public SubscriberForm() {
     }
 
-    public SubscriberForm(String name, String sureName, String tel, String address, String idNumber, String description) {
+    public SubscriberForm(String name, String gender, String sureName, String tel, String address, String idNumber, String description, String created_at) {
         this.name = name;
+        this.gender = gender;
         this.sureName = sureName;
         this.tel = tel;
         this.address = address;
         this.idNumber = idNumber;
         this.description = description;
+        this.created_at = created_at;
     }
 
-    public SubscriberForm(String id, String name, String sureName, String tel, String address, String idNumber, String description) {
+    public SubscriberForm(String id, String name, String gender, String sureName, String tel, String address, String idNumber, String description, String created_at) {
         this.id = id;
         this.name = name;
+        this.gender = gender;
         this.sureName = sureName;
         this.tel = tel;
         this.address = address;
         this.idNumber = idNumber;
         this.description = description;
+        this.created_at = created_at;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     public String getId() {

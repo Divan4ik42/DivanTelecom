@@ -16,7 +16,7 @@ public class ItemRestController {
 //    FakeData data;
         CrudItemMongoImpl service;
 
-    @RequestMapping("/get/all") //rest возвращает JASON
+    @RequestMapping("/list") //rest возвращает JASON
     List<Item> getAll (){
         return service.getAll();
     }

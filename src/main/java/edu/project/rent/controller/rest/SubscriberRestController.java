@@ -14,7 +14,7 @@ public class SubscriberRestController {
     @Autowired
     CrudSubscriberFakeServiceImpl service;
 
-    @RequestMapping("get/all")
+    @RequestMapping("list")
     List<Subscriber> getSubscriber() {
         return service.getAll();
     }

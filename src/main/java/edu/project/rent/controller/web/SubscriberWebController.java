@@ -44,6 +44,7 @@ public class SubscriberWebController {
     public String create(@ModelAttribute("form") SubscriberForm subscriberForm, Model model){
         Subscriber subscriber = new Subscriber();
         subscriber.setName(subscriberForm.getName());
+        subscriber.setGender(subscriberForm.getGender());
         subscriber.setSureName(subscriberForm.getSureName());
         subscriber.setTel(subscriberForm.getTel());
         subscriber.setAddress(subscriberForm.getAddress());
@@ -60,6 +61,7 @@ public class SubscriberWebController {
         SubscriberForm subscriberForm = new SubscriberForm();
         subscriberForm.setId(subscriber.getId());
         subscriberForm.setName(subscriber.getName());
+        subscriberForm.setGender(subscriber.getGender());
         subscriberForm.setSureName(subscriber.getSureName());
         subscriberForm.setTel(subscriber.getTel());
         subscriberForm.setAddress(subscriber.getAddress());
@@ -76,6 +78,7 @@ public class SubscriberWebController {
     public String update(Model model,@PathVariable("id") String id,@ModelAttribute("form") SubscriberForm form ){
         Subscriber subscriber = service.get(id);
         subscriber.setName(form.getName());
+        subscriber.setGender(form.getGender());
         subscriber.setSureName(form.getSureName());
         subscriber.setTel(form.getTel());
         subscriber.setAddress(form.getAddress());

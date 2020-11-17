@@ -12,10 +12,10 @@ import java.util.stream.Stream;
 public class FakeData {
     List<Subscriber> subscriber = Stream.of(
 
-            new Subscriber ("1","Alex","Sofiychuk","+380997160000","Golovna str.","3532s535743474940","all good", LocalDateTime.now(),LocalDateTime.now()),
-            new Subscriber ("2","Kate","Drapak","+380997162222","Prospect str.","37374746362246842","all good", LocalDateTime.now(),LocalDateTime.now()),
-            new Subscriber ("3","Sca","Sofiychuk","+380997163333","Golovna str.","45135438156233746","best of ALL", LocalDateTime.now(),LocalDateTime.now()),
-            new Subscriber ("4","Irene","Bogachuk","+380997161111","Golovna str.","31535353135453649","all good", LocalDateTime.now(),LocalDateTime.now())
+            new Subscriber ("1","Alex","-","Sofiychuk","+380997160000","Golovna str.","3532s535743474940","all good", LocalDateTime.now(),LocalDateTime.now()),
+            new Subscriber ("2","Kate","-","Drapak","+380997162222","Prospect str.","37374746362246842","all good", LocalDateTime.now(),LocalDateTime.now()),
+            new Subscriber ("3","Sca","-","Sofiychuk","+380997163333","Golovna str.","45135438156233746","best of ALL", LocalDateTime.now(),LocalDateTime.now()),
+            new Subscriber ("4","Irene","-","Bogachuk","+380997161111","Golovna str.","31535353135453649","all good", LocalDateTime.now(),LocalDateTime.now())
 
     ).collect(Collectors.toList());
 

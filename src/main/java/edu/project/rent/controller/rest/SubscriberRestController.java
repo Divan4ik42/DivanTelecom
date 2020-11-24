@@ -14,7 +14,7 @@ public class SubscriberRestController {
     @Autowired
     CrudSubscriberFakeServiceImpl service;
 
-    @RequestMapping("list")
+    @RequestMapping("/list")
     List<Subscriber> getSubscriber() {
         return service.getAll();
     }
@@ -31,6 +31,7 @@ public class SubscriberRestController {
 
     @PostMapping("/create")
     Subscriber create(@RequestBody Subscriber subscriber) {
+
         return service.create(subscriber);
     }
 

@@ -2,8 +2,8 @@ package edu.project.rent.forms;
 
 public class ItemForm {
     private String id = "";
-    private String name= "";
-    private String description= "";
+    private String name = "";
+    private String description = "";
     private String modified_at = "";
     private String created_at = "";
 

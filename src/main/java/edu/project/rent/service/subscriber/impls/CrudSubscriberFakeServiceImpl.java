@@ -29,9 +29,9 @@ public class CrudSubscriberFakeServiceImpl implements ICrudSubscriber {
 
     @Override
     public Subscriber get(String id) {
-        return null;
+        return this.getAll().stream().filter(element -> element.getId().equals(id))
+                .findFirst().orElse(null);
     }
-
 
     @Override
     public Subscriber update(Subscriber subscriber) {

@@ -35,15 +35,15 @@
 <h3>List</h3>
 <br>
 
-<div>
-    <fieldset>
-        <legend>Search</legend>
-        <form name="item" action="" method="POST">
-            Search:<@spring.formInput "search.name" "" "text"/>
-            <input type="submit" value="Search"/>
-        </form>
-    </fieldset>
-</div>
+<#--<div>-->
+<#--    <fieldset>-->
+<#--        <legend>Search</legend>-->
+<#--        <form name="item" action="" method="POST">-->
+<#--            Search:<@spring.formInput "search.name" "" "text"/>-->
+<#--            <input type="submit" value="Search"/>-->
+<#--        </form>-->
+<#--    </fieldset>-->
+<#--</div>-->
 <br>
 
 <div class="dropdown">
@@ -66,17 +66,25 @@
                 <th>id</th>
                 <th>name</th>
                 <th>description</th>
+                <th>start</th>
+                <th>finish</th>
+                <th>subscriber</th>
+                <th>build</th>
                 <th>created</th>
                 <th>modified</th>
                 <th>delete</th>
                 <th>edit</th>
             </tr>
-            <#list Items as element> <!--цикл по всем айтемам -->
+            <#list records as element> <!--цикл по всем айтемам -->
             <#--      для каждого айтем каторый мы получили из контроллера-->
                 <tr>
                     <td>${element.id}</td>
                     <td>${element.name}</td>
                     <td>${element.description}</td>
+                    <td>${element.start}</td>
+                    <td>${element.finish}</td>
+                    <td>${element.subscriber.name}</td>
+                    <td>${element.build.name}</td>
                     <td>${element.created_at}</td>
                     <td>${element.modified_at}</td>
                     <td><a href="/web/item/delete/${element.id}">
@@ -95,13 +103,13 @@
 </div>
 <div>
 
-    <a href="/web/item/create/">
+    <a href="/web/record/create/">
         <button type="button" class="btn btn-light">Create</button>
     </a>
 
 </div>
 <br>
-<button onclick="window.location.href='/web/item/list'">bug fixer</button>
+<button onclick="window.location.href='/web/record/list'">bug fixer</button>
 <br>
 
 <a href="/index.html">back</a>

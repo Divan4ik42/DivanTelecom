@@ -16,7 +16,7 @@
 
             Name:<@spring.formInput "form.name" "" "text"/>
             <br>
-            Gender:<@spring.formInput "form.gender" "" "text"/>
+            Gender:<@spring.formSingleSelect "form.gender" ,genders, ""/>
             <br>
             sureName:<@spring.formInput "form.sureName" "" "text"/>
             <br>

@@ -15,9 +15,9 @@
         <form name="subscriber" action="" method="POST">
             Name:<@spring.formInput "form.name" "" "text"/>
             <br>
-            Gender:<@spring.formInput "form.gender" "" "text"/>
+            Gender:<@spring.formSingleSelect "form.gender" ,genders , ""/>
             <br>
-            sureName:<@spring.formInput "form.sureName" "" "text"/>
+            sureName:<@spring.formInput "form.sureName" "" ""/>
             <br>
             tel:<@spring.formInput "form.tel" "" "text"/>
             <br>

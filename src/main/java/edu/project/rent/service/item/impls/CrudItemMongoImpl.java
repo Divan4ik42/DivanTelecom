@@ -8,6 +8,7 @@ import edu.project.rent.service.item.interfaces.ICrudItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Service;
+import sun.tools.tree.ThisExpression;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;
@@ -73,11 +74,6 @@ public class CrudItemMongoImpl implements ICrudItem {
                 .sorted(Comparator.comparing(Item::getName, String.CASE_INSENSITIVE_ORDER))
                 .collect(Collectors.toList());
 
-
-
-
-
-
         return sorted;
     }
     public List<Item> getAllSortedByDate() {
@@ -95,4 +91,9 @@ public class CrudItemMongoImpl implements ICrudItem {
         return sortById;
     }
 
+    public List<Item> getByName(String name) {
+        if (name.equals(""))return this.getAll();
+        return this.getAll().stream().filter(item -> item.getName().contains(name))
+                .collect(Collectors.toList());
+    }
 }

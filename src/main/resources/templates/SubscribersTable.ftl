@@ -35,6 +35,15 @@
 
 <h3>Subscribers</h3>
 <br>
+<div>
+    <fieldset>
+        <legend>Search</legend>
+        <form name="subscriber" action="" method="POST">
+            Search:<@spring.formInput "search.name" "" "text"/>
+            <input type="submit" value="Search"/>
+        </form>
+    </fieldset>
+</div>
 <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -42,9 +51,9 @@
     </button>
     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-        <button class="btn dropdown-item" onclick="window.location.href='/web/item/list/sortbyid'">ID</button>
-        <button class="btn dropdown-item" onclick="window.location.href='/web/item/list/sort'">Name</button>
-        <button class="btn dropdown-item" onclick="window.location.href='/web/item/list/sortbydate'">Modified</button>
+        <button class="btn dropdown-item" onclick="window.location.href='/web/subscriber/list/sortbyid'">ID</button>
+        <button class="btn dropdown-item" onclick="window.location.href='/web/subscriber/list/sort'">Name</button>
+        <button class="btn dropdown-item" onclick="window.location.href='/web/subscriber/list/sortbydate'">Modified</button>
     </div>
     <div>
         <div>
@@ -67,7 +76,8 @@
                     <tr>
                         <td>${element.id}</td>
                         <td>${element.name}</td>
-                        <td>-</td>
+<#--                        <td>-</td>-->
+                        <td>${element.gender}</td>
                         <td>${element.sureName}</td>
                         <td>${element.tel}</td>
                         <td>${element.address}</td>
@@ -90,6 +100,7 @@
             <a href="/web/subscriber/create/">
                 <button type="button" class="btn btn-light">Create</button>
             </a>
+            <button onclick="window.location.href='/web/subscriber/list'">bug fixer</button>
 
         </div>
     </div>

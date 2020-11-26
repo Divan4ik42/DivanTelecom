@@ -8,7 +8,6 @@ import edu.project.rent.service.item.interfaces.ICrudItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Service;
-import sun.tools.tree.ThisExpression;
 
 import javax.annotation.PostConstruct;
 import java.time.LocalDateTime;

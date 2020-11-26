@@ -61,7 +61,7 @@ public class CrudSubscriberMongoImpl implements ICrudSubscriber {
     }
 
     @Override
-    public List<Subscriber> getAll() {
+    public List<Subscriber> getAll(){
         return repository.findAll();
     }
 
